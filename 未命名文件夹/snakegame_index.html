@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Snake Game</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telphone=no, email=no" />
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+	<style type="text/css">
+		#stage{
+			box-sizing: border-box;
+		}
+</style>
+</head>
+<body>
+
+<canvas class="cover" id="stage"></canvas>
+<div id="infobox">
+	<h1>FPS: <span id="fps-rate"></span></h1>
+	<h1 id="time-remain"></h1>
+</div>
+<div id="motionhandler" class="leftSide">
+	<div class="buttonWrapper">
+		<button class="MotionControler"></button>
+	</div>
+</div>
+<div id="velocityHandler" class="rightSide">
+	<div class="buttonWrapper lightning">
+	</div>
+</div>
+<ul id="snake_list">
+</ul>
+<div class="cover end-scene" id="game-end-scene">
+	<div class="report-board">
+		<div class="report-title">game over</div>
+		<div class="report-content">
+			<table>
+				<tr>
+					<td>score</td>
+					<td id="snake-length" class="number">333</td>
+				</tr>
+				<tr>
+					<td>kill</td>
+					<td id="snake-kill" class="number">0</td>
+				</tr>
+			</table>
+		</div>
+		<div class="option-panel">
+			<button class="panel-btn backward" id="backward-btn">back</button>
+			<button class="panel-btn repeat" id="repeat-btn">again</button>
+		</div>
+	</div>
+</div>
+
+<audio id="die-sfx" preload="auto">
+  <source src="die.mp3" type="audio/mpeg">
+</audio>
+
+
+<audio id="bgm" loop autoplay>
+  <source src="bgm.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<script>
+  window.addEventListener('click', function unlockAudio() {
+    const bgm = document.getElementById('bgm');
+    if (bgm) {
+      bgm.muted = false;
+      bgm.play();
+      console.log('BGM unlocked by user interaction.');
+    }
+    window.removeEventListener('click', unlockAudio);
+  });
+</script>
+
+<script type="text/javascript" src="bundle.js"></script>
+</body>
+</html>
